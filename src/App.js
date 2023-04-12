@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import routes from './routes';
+import AuthenticatedRoute from './components/routes/AuthenticatedRoute';
+import GuestRoute from './components/routes/GuestRoute';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Redirect from={'/'} to={'/login'} exact />
+				{routes.map(route => {
+                        if(route.type === 'authenticated') {
+                            return <AuthenticatedRoute {...route} key={route.path} />;
+                        }
+						
+                        if(route.type === 'guest') {
+                            return <GuestRoute {...route} key={route.path} />;
+                        }
+                        
+                        return <Route {...route} key={route.path} />;
+                    }
+                )}
+				<Route component={PageNotFound} />
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;
