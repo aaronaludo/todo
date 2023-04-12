@@ -18,7 +18,7 @@ const Login = ({history}) => {
     e.preventDefault();
     setError(false);
     
-    for (let i = 0; i < 20000000; i++) {
+    for (let i = 0; i < 20000; i++) {
       if(username === `user${i}` && password === `password${i}`){
         const new_data = {
           id: i,
@@ -49,8 +49,9 @@ const Login = ({history}) => {
     <div className='position-absolute m-5'>
       {note ?
       <div id="code" onClick={() => setNote(false)}>
-        Username: user(you can put any number) <br/>
-        Password: password(same number in username)
+        Username: user(you can choose any number between 1-20000) <br/>
+        Password: password(same number in username)<br/><br/><br/>
+        <small>click me to minimize</small>
       </div>
       : <CgNotes style={{ color: 'white', fontSize: '60px' }}onClick={() => setNote(true)}>Note</CgNotes>
       }
