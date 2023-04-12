@@ -76,7 +76,7 @@ function TodoList({history}) {
     <>
       <div className='d-flex justify-content-between'>
         <h1 className='ms-3'>{`user${user.id}`}</h1>
-        <h1>To-Do</h1>
+        <h1>Todo</h1>
         <button className="btn btn-danger me-3" onClick={logoutUserData}>Logout</button>
       </div>
       <TodoForm onSubmit={addTodo} />
