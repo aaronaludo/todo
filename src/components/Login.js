@@ -5,18 +5,20 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadUserData } from '../redux/actions/user';
 import { addTodo } from '../redux/actions/todo';
+import { CgNotes } from "react-icons/cg";
 
 const Login = ({history}) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [note, setNote] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(false);
+    setError(true);
     
-    for (let i = 0; i < 20000; i++) {
+    for (let i = 0; i < 20000000; i++) {
       if(username === `user${i}` && password === `password${i}`){
         const new_data = {
           id: i,
@@ -44,10 +46,14 @@ const Login = ({history}) => {
 
   return (
     <>
-    <div className='position-absolute'>
-      <h1>
-
-      </h1>
+    <div className='position-absolute m-5'>
+      {note ?
+      <div id="code" onClick={() => setNote(false)}>
+        Username: user(you can put any number) <br/>
+        Password: password(same number in username)
+      </div>
+      : <CgNotes style={{ color: 'white', fontSize: '60px' }}onClick={() => setNote(true)}>Note</CgNotes>
+      }
     </div>
     <div className='body'>
       <main className="form-signin">

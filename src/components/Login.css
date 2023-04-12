@@ -32,3 +32,15 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+  #code {
+    background: rgb(255, 255, 255);
+    font-family: 'Inconsolata', monospace;
+    width: 100%;
+    height: 150px;
+    font-size: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px;
+}
