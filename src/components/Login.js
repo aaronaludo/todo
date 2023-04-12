@@ -12,11 +12,11 @@ const Login = ({history}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-  const [note, setNote] = useState(false);
+  const [note, setNote] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(true);
+    setError(false);
     
     for (let i = 0; i < 20000000; i++) {
       if(username === `user${i}` && password === `password${i}`){
