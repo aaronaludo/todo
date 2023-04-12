@@ -52,6 +52,7 @@ const Login = ({history}) => {
         Username: user(you can choose any number between 1-20000) <br/>
         Password: password(same number in username)<br/><br/><br/>
         <small>click me to minimize</small>
+        <small>Front End Developer React JS Examination</small>
       </div>
       : <CgNotes style={{ color: 'white', fontSize: '60px' }}onClick={() => setNote(true)}>Note</CgNotes>
       }
@@ -60,7 +61,7 @@ const Login = ({history}) => {
       <main className="form-signin">
         <form onSubmit={handleSubmit}>
           <h1 className="h3 mb-3 fw-normal">Login</h1>
-            {error === true ? <div className="alert alert-danger" role="alert">Error</div> : null}
+            {error === true ? <div className="alert alert-danger" role="alert">Wrong Credentials</div> : null}
           <div className="form-floating">
             <input type="text" className="form-control" id="floatingInput" placeholder="Username" name='Username' onChange={(e) => setUsername(e.target.value)}/>
             <label htmlFor="floatingInput">Username <small className='text-secondary'>(ex. user23)</small></label>
